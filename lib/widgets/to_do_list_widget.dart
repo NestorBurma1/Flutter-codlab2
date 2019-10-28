@@ -36,8 +36,14 @@ class TodoListState extends State<TodoList> {
                 });
               },
               background: Container(
-                color: Colors.redAccent,
-
+                alignment: Alignment.centerLeft,
+                color: Colors.green,
+                child: Icon(Icons.check),
+              ),
+              secondaryBackground: Container(
+                alignment: Alignment.centerRight,
+                color: Colors.red,
+                child: Icon(Icons.cancel,)
               ),
               key: Key(items[index]),
               child: (ListTile(
