@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class TodoList extends StatefulWidget {
-  State<StatefulWigit remote add origin https://github.com/NestorBurma1/Flutter-codlab2.gitdget> createState() {
+  State<StatefulWigit> createState() {
     return TodoListState();
   }
 }
