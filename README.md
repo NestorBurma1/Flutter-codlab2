@@ -2,15 +2,15 @@
 
 A new Flutter application.
 
-## Getting Started
+Each app always can be improved. It can be improved in hundreds of ways. Let's start on our todo list.
 
-This project is a starting point for a Flutter application.
+Please, add the ability to remove an item from the list. Do it as you want.
 
-A few resources to get you started if this is your first Flutter project:
+We suggest choosing one of the variants:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Add ‘minus' button to each item in the list.
+Add swipe action for removing an item.
+The simplest variant, add one more button to the screen and remove items in some order.
+Additionally, you can try to update UI for items. It can be borders, different fonts, etc. Just start exploring widget catalog. You can customize our ListTile for creating more friendly item UI.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Good luck!
