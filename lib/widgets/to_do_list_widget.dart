@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class TodoList extends StatefulWidget {
-  State<StatefulWigit> createState() {
+  @override
+  State createState() {
     return TodoListState();
   }
 }
 
 class TodoListState extends State<TodoList> {
+  final String textAppBarTitle = 'Todo list';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Todo list')),
+        appBar: AppBar(title: Text(textAppBarTitle)),
         body: _buildList(),
         floatingActionButton: FloatingActionButton(
           onPressed: () => _addNewItem(context),
@@ -41,12 +43,13 @@ class TodoListState extends State<TodoList> {
                 child: Icon(Icons.check),
               ),
               secondaryBackground: Container(
-                alignment: Alignment.centerRight,
-                color: Colors.red,
-                child: Icon(Icons.cancel,)
-              ),
+                  alignment: Alignment.centerRight,
+                  color: Colors.red,
+                  child: Icon(
+                    Icons.cancel,
+                  )),
               key: Key(items[index]),
-              child: (ListTile(
+              child: ListTile(
                   title: Text(items[index]),
                   trailing: IconButton(
                       icon: Icon(Icons.delete_forever),
@@ -54,34 +57,37 @@ class TodoListState extends State<TodoList> {
                         setState(() {
                           items.removeAt(index);
                         });
-                      }))));
+                      })));
         });
   }
 
-  TextEditingController _textFieldController = TextEditingController();
+  final TextEditingController _textFieldController = TextEditingController();
+  final String newActionText = 'Write new action todo';
+  final String cancelText = 'Todo action';
+  final String addText = 'Add';
 
-  _addNewItem(BuildContext context) {
-    showDialog(
+  void _addNewItem(BuildContext context) {
+    showDialog<AlertDialog>(
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text('Write new action todo'),
+            title: Text(newActionText),
             content: TextField(
               controller: _textFieldController,
               decoration: InputDecoration(hintText: 'Todo action'),
             ),
             actions: <Widget>[
               FlatButton(
-                child: Text('CANCEL'),
+                child: Text(cancelText),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
               ),
               FlatButton(
-                child: Text('Add'),
+                child: Text(addText),
                 onPressed: () {
                   setState(() {
-                    if (_textFieldController.text.length > 0) {
+                    if (_textFieldController.text.isNotEmpty) {
                       items.add(_textFieldController.text);
                       _textFieldController.clear();
                     }
