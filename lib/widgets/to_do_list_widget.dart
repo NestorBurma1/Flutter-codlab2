@@ -63,13 +63,14 @@ class TodoListState extends State<TodoList> {
 
   final TextEditingController _textFieldController = TextEditingController();
   final String newActionText = 'Write new action todo';
-  final String cancelText = 'Todo action';
+  final String cancelText = 'Cancel';
   final String addText = 'Add';
 
   void _addNewItem(BuildContext context) {
     showDialog<AlertDialog>(
         context: context,
         builder: (context) {
+          _textFieldController.text = '';
           return AlertDialog(
             title: Text(newActionText),
             content: TextField(
@@ -79,9 +80,7 @@ class TodoListState extends State<TodoList> {
             actions: <Widget>[
               FlatButton(
                 child: Text(cancelText),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
+                onPressed: () => Navigator.of(context).pop(),
               ),
               FlatButton(
                 child: Text(addText),
